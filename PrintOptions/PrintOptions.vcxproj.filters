@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Assets">
+      <UniqueIdentifier>{9d93879b-0632-46ad-9dae-173f527937f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Assets\Stock">
+      <UniqueIdentifier>{38de2ba0-f352-4c64-a12e-246eeddbdad6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Assets\Option">
+      <UniqueIdentifier>{480eb842-ff06-410e-91a6-7b2a23273e04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Dao">
+      <UniqueIdentifier>{37232961-850f-4091-bb54-ebcba14af22e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Assets">
+      <UniqueIdentifier>{a0d6317e-6582-4c08-9de7-25608cbd9dc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Assets\Option">
+      <UniqueIdentifier>{92009e20-c77b-4f0b-bee3-61f4150d9b8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utility">
+      <UniqueIdentifier>{cd6dba31-41e2-4806-be46-ae0699179ecc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TestMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilitiesDJD\ExceptionClasses\DatasimException.cpp">
+      <Filter>Source Files\Assets\Option</Filter>
+    </ClCompile>
+    <ClCompile Include="OneFactorPlainOption.cpp">
+      <Filter>Source Files\Assets\Option</Filter>
+    </ClCompile>
+    <ClCompile Include="Option.cpp">
+      <Filter>Source Files\Assets\Option</Filter>
+    </ClCompile>
+    <ClCompile Include="PerpetualOption.cpp">
+      <Filter>Source Files\Assets\Option</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilitiesDJD\BitsAndPieces\StringConversions.cpp">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MetaData.h">
+      <Filter>Header Files\Assets\Stock</Filter>
+    </ClInclude>
+    <ClInclude Include="Stock.hpp">
+      <Filter>Header Files\Assets\Stock</Filter>
+    </ClInclude>
+    <ClInclude Include="StockFactory.h">
+      <Filter>Header Files\Assets\Stock</Filter>
+    </ClInclude>
+    <ClInclude Include="Tick.h">
+      <Filter>Header Files\Assets\Stock</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeSeries.h">
+      <Filter>Header Files\Assets\Stock</Filter>
+    </ClInclude>
+    <ClInclude Include="OneFactorPlainOption.hpp">
+      <Filter>Header Files\Assets\Option</Filter>
+    </ClInclude>
+    <ClInclude Include="Option.hpp">
+      <Filter>Header Files\Assets\Option</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionHelperMethods.hpp">
+      <Filter>Header Files\Assets\Option</Filter>
+    </ClInclude>
+    <ClInclude Include="PerpetualOption.hpp">
+      <Filter>Header Files\Assets\Option</Filter>
+    </ClInclude>
+    <ClInclude Include="HTTPRequest.h">
+      <Filter>Header Files\Dao</Filter>
+    </ClInclude>
+    <ClInclude Include="StockCalculations.hpp">
+      <Filter>Header Files\Assets\Stock</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
