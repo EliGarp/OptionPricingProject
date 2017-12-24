@@ -90,9 +90,12 @@ int main()
 
 	map<string, string> mParams;
 	mParams["function"] = "TIME_SERIES_DAILY";
-	mParams["symbol"] = "AAPL";
-	mParams["outputsize"] = "full";
-	mParams["apikey"] = "ALPHADAVANTAGEAPIKEY";
+	mParams["symbol"] = "AAPL"; //stock
+	mParams["outputsize"] = "full"; //full (up to 20 years) or compact (only 90 days)
+	mParams["apikey"] = "ALPHADAVANTAGEAPIKEY"; //PLACE YOUR APIKEY HERE OR THIS WILL NOT WORK
+
+	//Numbers of days option is for
+	int optionDays = 90;
 
 	//Build URL
 	string url = createURL(urlBase, vParams, mParams);
@@ -102,16 +105,15 @@ int main()
 	string response = returnResponseAsString(url);
 
 	//Extract stock
-	int predicDays = 90;
-	Stock stockPredic = stockFactoryFromJsonString(response,predicDays*20, predicDays);
+	Stock stockPredic = stockFactoryFromJsonString(response, optionDays *20, optionDays);
 	cout << stockPredic.to_string() << endl;
 
 	//Get rate of return
-	double ror = rateOfReturn(stockPredic, predicDays);
+	double ror = rateOfReturn(stockPredic, optionDays);
 	cout << "ror: " << ror << endl;
 
 	//Get Constant Volatility
-	double constVol = constantVolatility(stockPredic, predicDays);
+	double constVol = constantVolatility(stockPredic, optionDays);
 	cout << "constVol: " << constVol << endl << endl;
 
 	//Assemble Mesh Arrays
@@ -119,18 +121,18 @@ int main()
 	vector<double> vStrike = MeshArray(stockPredic.m_TimeSeries.Ticks()[0].close()-25, 50, 1);
 	vector<double> vInterest = MeshArray(ror, 50);
 	vector<double> vConstVol = MeshArray(constVol, 50);
-	vector<double> vTime = MeshArray(predicDays, 50);
+	vector<double> vTime = MeshArray(optionDays, 50);
 
 	//Create Arrays of Calls and Puts;
 	vector<double> vCalls = Options::OneFactor::CalculateOptionPriceForAVector(vAsset, vStrike, vInterest, vConstVol, vTime, "Black_Scholes_Stock", "Call");
 	vector<double> vPuts = Options::OneFactor::CalculateOptionPriceForAVector(vAsset, vStrike, vInterest, vConstVol, vTime, "Black_Scholes_Stock", "Put");
 
 	//Get Analysis Period
-	Stock stockOption = stockFactoryFromJsonString(response, predicDays, 0);
+	Stock stockOption = stockFactoryFromJsonString(response, optionDays, 0);
 	cout << "Analysis stock: " << endl << stockOption.to_string() << endl << endl;
 
 	//Place into matrix
-	std::size_t N = 50; std::size_t M = 3 + predicDays; // rows and columns
+	std::size_t N = 50; std::size_t M = 3 + optionDays; // rows and columns
 	NumericMatrix matrix(N, M);
 	for (std::size_t i = 0; i < matrix.size1(); ++i)
 	{
